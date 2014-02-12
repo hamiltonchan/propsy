@@ -2,15 +2,15 @@
 	<h1>Everything is Awesome</h1>
 	<div class="row">
 		<% @props.each do |p| %>
-<!-- 	add a link_to to show when it exists
--->
-		<div class="col-xs-12 col-sm-6 col-md-3">
-			<div class="prop">
-				Props to <%= p.recipient %><br />
-				From <%= p.author %><br />
-				For <%= truncate(p.reason, :length => 50, :omission => '...(more)') %>
+			<div class="col-xs-12 col-sm-6 col-md-3">
+			<%= link_to prop_path(p) do %>
+				<div class="prop">
+					Props to <%= p.recipient %><br />
+					From <%= p.author %><br />
+					For <%= truncate(p.reason, :length => 50, :omission => '...(more)') %>
+				</div>
+			<% end %>
 			</div>
-		</div>
 		<% end %>	
 	</div>
 </div>

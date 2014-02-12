@@ -1,2 +1,15 @@
-<h1>Props#show</h1>
-<p>Find me in app/views/props/show.html.erb</p>
+<div class = "container">
+	<h1><%= @prop.author %> gives <%= @prop.recipient %> props for ...</h1>
+	<div class="row">
+<!-- Below is to put 2 gutters, like a version of margin: 0 auto -->
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<div class="prop">
+				<%= @prop.reason %>
+			</div>
+
+			<%= link_to "Back to the Props Board", props_path, class: "btn btn-info" %>
+		</div>
+		<div class="col-md-3"></div>		
+	</div>
+</div>
