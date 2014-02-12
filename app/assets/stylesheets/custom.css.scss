@@ -16,3 +16,12 @@ h1 {
 a:hover {
 	text-decoration: none;
 }
+
+.btn, .form-control {
+	margin-bottom: 10px;
+}
+
+.btn {
+	float: left;
+	margin-right: 10px;
+}

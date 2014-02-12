@@ -1,2 +1,18 @@
-<h1>Props#new</h1>
-<p>Find me in app/views/props/new.html.erb</p>
+<div class="container">
+	<h1>Give Someone Props!</h1>
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<%= form_for @prop do |f| %>
+				From: <%= f.text_field :author, class: "form-control" %>
+				To: <%= f.text_field :recipient, placeholder: "Their Name Here", class: "form-control" %>
+				For: <%= f.text_area :reason, placeholder: "Being awesome!", class: "form-control", rows: "10" %>
+				<%= f.submit "Give Props!", class: "btn btn-success" %>
+			<% end %>
+
+			<%= link_to "Back to the Props Board!", props_path, class: "btn btn-info" %>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+</div>
+
