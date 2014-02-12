@@ -1,4 +1,5 @@
 <div class = "container">
+	Hi, <%= current_user ? current_user.username : "Stranger" %>!
 	<h1>Everything is Awesome</h1>
 	<div class="row">
 		<% @props.each do |p| %>
@@ -14,4 +15,5 @@
 		<% end %>	
 	</div>
 	<%= link_to "Give Someone Props!", new_prop_path, class: "btn btn-primary" %>
+	<%= button_to "Log out!", auths_path, method: :delete, class: "btn btn-danger" %>
 </div>

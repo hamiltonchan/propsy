@@ -4,6 +4,10 @@ Propsy::Application.routes.draw do
   # get "props/show"
 
   resources :props
+  resources :users, only:[:index, :new, :create]
+  resources :auths, only:[:new, :create]
+
+  delete "auths" => "auths#destroy"
 
   root 'props#index'
   # The priority is based upon order of creation: first created -> highest priority.

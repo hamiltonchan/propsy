@@ -32,9 +32,11 @@ class PropsController < ApplicationController
   		flash[:error] = "Your update didn't go through."
   		render 'edit'
   	end
-
-
   end
 
+  def destroy
+  	Prop.find(params[:id]).destroy
+  	redirect_to props_path
+  end
 
 end
