@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+	before_action :verify_not_logged_in, only: [:new, :create]
 
 	def index
 		@users = User.all
@@ -16,9 +17,15 @@ class UsersController < ApplicationController
 		else
 			render 'new'
 		end
-
-
 	end
 
+	private
+
+	def verify_not_logged_in
+		if current_user
+			flash[:error] = "You must log out first! Let someone else play."
+			redirect_to root_path
+		end
+	end
 
 end

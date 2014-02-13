@@ -4,7 +4,8 @@
 		<div class="col-md-3"></div>
 		<div class="col-md-6">
 			<%= form_for @prop do |f| %>
-				From: <%= f.text_field :author, class: "form-control" %>
+				From: <br /><%= f.text_field :author, value: current_user.username, id: "disabledInput", disabled: true %><br />
+				From: <%= f.hidden_field :author, value: current_user.username %><br />
 				To: <%= f.text_field :recipient, placeholder: "Their Name Here", class: "form-control" %>
 				For: <%= f.text_area :reason, placeholder: "Being awesome!", class: "form-control", rows: "10" %>
 				<%= f.submit "Give Props!", class: "btn btn-success" %>

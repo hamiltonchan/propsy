@@ -7,8 +7,10 @@
 			<div class="prop">
 				<%= @prop.reason %>
 			</div>
-			<%= link_to "Edit this prop", edit_prop_path, class: "btn btn-primary" %>
-			<%= link_to "Delete this prop", { action: "destroy", id:@prop.id }, { method: :delete, data: { confirm: "Are you sure you want to delete this prop? People might get sad." }, class: "btn btn-danger" } %>
+			<div class = "vanish">
+				<%= link_to_if(@prop.author == current_user.username, "Edit this prop", edit_prop_path, class: "btn btn-primary") %>
+				<%= link_to_if(@prop.author == current_user.username, "Delete this prop", { action: "destroy", id:@prop.id }, { method: :delete, data: { confirm: "Are you sure you want to delete this prop? People might get sad." }, class: "btn btn-danger" }) %>
+			</div>
 			<%= link_to "Back to the Props Board", props_path, class: "btn btn-info" %>
 		</div>
 		<div class="col-md-3"></div>		

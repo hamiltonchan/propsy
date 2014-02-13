@@ -1,4 +1,6 @@
 class PropsController < ApplicationController
+	before_action :verify_logged_in
+
   def index
   	@props = Prop.all.sort_by(&:created_at).reverse
   end
@@ -38,5 +40,14 @@ class PropsController < ApplicationController
   	Prop.find(params[:id]).destroy
   	redirect_to props_path
   end
+
+  private
+  	def verify_logged_in
+  		if !current_user
+  			flash[:error] = "You must log in before you can make awesome props!"
+  			redirect_to new_auth_path
+  		end
+  	end
+
 
 end
